@@ -1,0 +1,52 @@
+@import '../../vars';
+
+.header {
+	background: $deep-blue;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	padding: 8px 20px;
+	position: relative;
+}
+
+.title {
+	margin-right: auto;
+	font-size: 28px;
+	line-height: 1.178;
+}
+
+.user, .auth p {
+	cursor: pointer;
+}
+
+.auth {
+	position: absolute;
+	top: 60px;
+	right: 20px;
+	padding: 8px;
+	min-width: 134px;
+	background: #fff;
+	color: #000;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	font-size: 14px;
+	line-height: 1.14;
+	&::after {
+		position: absolute;
+		content: '';
+		top: -19px;
+		right: 34px;
+		width: 0;
+		height: 0;
+		border: 10px solid transparent;
+		border-bottom: 10px solid #fff;
+		z-index: 10;
+	}
+	p {
+		&:hover {
+			color: $deep-blue;
+		}
+	 }
+}

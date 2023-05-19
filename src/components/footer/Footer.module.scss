@@ -1,0 +1,54 @@
+@import '../../vars';
+
+.footer {
+	min-height: 50px;
+	background: $deep-blue;
+	color: #fff;
+	display: flex;
+	padding: 17px 20px;
+	align-items: center;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.16;
+}
+
+.active {
+	margin-right: 36px;
+}
+
+.by {
+	margin-left: auto;
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+
+
+
+.counts {
+	display: flex;
+}
+
+.count {
+	position: relative;
+	margin-right: 30px;
+}
+
+.count + .count::before {
+	content: '';
+	display: block;
+	background: #fff;
+	width: 1px;
+	height: 100%;
+	position: absolute;
+	left: -15px;
+	top: 0;
+}
+
+.copy {
+	margin-left: auto;
+}
