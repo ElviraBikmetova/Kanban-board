@@ -34,12 +34,48 @@ const handleAddNewTask = () => {
 			{type === LIST_TYPES.IN_PROGRESS && isFormVisible && <SelectAddNewTask filteredTasks={readyTasks} allTasks={allTasks} setTasks={setTasks} status={LIST_TYPES.IN_PROGRESS} setFormVisible={setFormVisible} />}
 			{type === LIST_TYPES.FINISHED && isFormVisible && <SelectAddNewTask filteredTasks={inProgressTasks} allTasks={allTasks} setTasks={setTasks} status={LIST_TYPES.FINISHED} setFormVisible={setFormVisible} />}
 
-			{!isFormVisible &&
+			{!isFormVisible && type === LIST_TYPES.BACKLOG &&
 			<button className={css.addButton} onClick={handleAddNewTask}>
 				<PlusIcon />
 				Add card
 			</button>
 			}
+
+			{!isFormVisible && type === LIST_TYPES.READY && (backlogTasks.length ?
+			<button className={css.addButton} onClick={handleAddNewTask}>
+				<PlusIcon />
+				Add card
+			</button>
+			:
+			<button className={css.addButtonDisabled} onClick={handleAddNewTask} disabled="disabled">
+			<PlusIcon />
+			Add card
+			</button>
+			)}
+
+			{!isFormVisible && type === LIST_TYPES.IN_PROGRESS && (readyTasks.length ?
+			<button className={css.addButton} onClick={handleAddNewTask}>
+				<PlusIcon />
+				Add card
+			</button>
+			:
+			<button className={css.addButtonDisabled} onClick={handleAddNewTask} disabled="disabled">
+			<PlusIcon />
+			Add card
+			</button>
+			)}
+
+			{!isFormVisible && type === LIST_TYPES.FINISHED && (inProgressTasks.length ?
+			<button className={css.addButton} onClick={handleAddNewTask}>
+				<PlusIcon />
+				Add card
+			</button>
+			:
+			<button className={css.addButtonDisabled} onClick={handleAddNewTask} disabled="disabled">
+			<PlusIcon />
+			Add card
+			</button>
+			)}
 		</div>
 	)
 }

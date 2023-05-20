@@ -49,3 +49,19 @@
 	}
 }
 
+.addButtonDisabled {
+	background: none;
+	border: none;
+	appearance: none;
+	font-size: 15px;
+	margin-top: 15px;
+	font-size: 18px;
+	line-height: 1.16;
+	color: #909bae;
+	border-radius: 5px;
+	padding: 6px;
+	svg {
+		margin-right: 4px;
+	}
+}
+
