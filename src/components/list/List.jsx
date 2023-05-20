@@ -7,8 +7,13 @@ import { PlusIcon } from '../../assets/plus-icon'
 import css from './List.module.scss'
 
 const List = props => {
-const {title, type, tasks, addNewTask} = props
+const {title, type, tasks, addNewTask, allTasks, setTasks} = props
 const [isFormVisible, setFormVisible] = useState(false)
+
+const backlogTasks = allTasks.filter(task => task.status === LIST_TYPES.BACKLOG)
+const readyTasks = allTasks.filter(task => task.status === LIST_TYPES.READY)
+const inProgressTasks = allTasks.filter(task => task.status === LIST_TYPES.IN_PROGRESS)
+
 
 const handleAddNewTask = () => {
 	setFormVisible(!isFormVisible)
@@ -25,7 +30,10 @@ const handleAddNewTask = () => {
 				)
 			})}
 			{type === LIST_TYPES.BACKLOG && isFormVisible && <FormAddNewTask addNewTask={addNewTask} setFormVisible={setFormVisible} />}
-			{type !== LIST_TYPES.BACKLOG && isFormVisible && <SelectAddNewTask {...props}  />}
+			{type === LIST_TYPES.READY && isFormVisible && <SelectAddNewTask filteredTasks={backlogTasks} allTasks={allTasks} setTasks={setTasks} status={LIST_TYPES.READY} setFormVisible={setFormVisible} />}
+			{type === LIST_TYPES.IN_PROGRESS && isFormVisible && <SelectAddNewTask filteredTasks={readyTasks} allTasks={allTasks} setTasks={setTasks} status={LIST_TYPES.IN_PROGRESS} setFormVisible={setFormVisible} />}
+			{type === LIST_TYPES.FINISHED && isFormVisible && <SelectAddNewTask filteredTasks={inProgressTasks} allTasks={allTasks} setTasks={setTasks} status={LIST_TYPES.FINISHED} setFormVisible={setFormVisible} />}
+
 			{!isFormVisible &&
 			<button className={css.addButton} onClick={handleAddNewTask}>
 				<PlusIcon />

@@ -6,7 +6,7 @@ import css from './Board.module.scss'
 const Board = (props) => {
 const {tasks, setTasks} = props
 
-const addNewTask = (title, description) => {
+const addNewTask = (title) => {
 	const newTask = {
 		id: uniqid(),
 		title: title,
@@ -20,7 +20,7 @@ const addNewTask = (title, description) => {
 			{Object.values(LIST_TYPES).map(type => {
 				const listTasks = tasks.filter(task => task.status === type)
 				return (
-					<List key={type} type={type} title={LIST_COPY[type]} tasks={listTasks} addNewTask={addNewTask} />
+					<List key={type} type={type} title={LIST_COPY[type]} tasks={listTasks} allTasks={tasks} addNewTask={addNewTask} setTasks={setTasks} />
 				)
 			})}
 		</div>
