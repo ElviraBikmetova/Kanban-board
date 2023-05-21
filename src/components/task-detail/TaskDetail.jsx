@@ -27,7 +27,7 @@ const TaskDetail = (props) => {
 
 	const handleSubmit = e => {
 		e.preventDefault()
-
+		setTasks([...tasks, task.description = descriptions.description])
 		setDescriptions({...descriptions, visible: true})
 	}
 

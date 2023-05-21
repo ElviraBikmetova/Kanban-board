@@ -4,7 +4,10 @@ import css from './Forms.module.scss'
 
 const FormAddNewTask = props => {
 	const {addNewTask, setFormVisible} = props
-	const [values, setValues] = useState({title: ''	})
+	const [values, setValues] = useState({
+		title: '',
+		description:''
+	})
 
 	const handleChange = e => {
 		setValues({...values, title: e.target.value})
