@@ -15,7 +15,7 @@ const readyTasks = allTasks.filter(task => task.status === LIST_TYPES.READY)
 const inProgressTasks = allTasks.filter(task => task.status === LIST_TYPES.IN_PROGRESS)
 
 
-const handleAddNewTask = () => {
+const handleVisible = () => {
 	setFormVisible(!isFormVisible)
 }
 
@@ -35,43 +35,43 @@ const handleAddNewTask = () => {
 			{type === LIST_TYPES.FINISHED && isFormVisible && <SelectAddNewTask filteredTasks={inProgressTasks} allTasks={allTasks} setTasks={setTasks} status={LIST_TYPES.FINISHED} setFormVisible={setFormVisible} />}
 
 			{!isFormVisible && type === LIST_TYPES.BACKLOG &&
-			<button className={css.addButton} onClick={handleAddNewTask}>
+			<button className={css.addButton} onClick={handleVisible}>
 				<PlusIcon />
 				Add card
 			</button>
 			}
 
 			{!isFormVisible && type === LIST_TYPES.READY && (backlogTasks.length ?
-			<button className={css.addButton} onClick={handleAddNewTask}>
+			<button className={css.addButton} onClick={handleVisible}>
 				<PlusIcon />
 				Add card
 			</button>
 			:
-			<button className={css.addButtonDisabled} onClick={handleAddNewTask} disabled="disabled">
+			<button className={css.addButtonDisabled} onClick={handleVisible} disabled="disabled">
 			<PlusIcon />
 			Add card
 			</button>
 			)}
 
 			{!isFormVisible && type === LIST_TYPES.IN_PROGRESS && (readyTasks.length ?
-			<button className={css.addButton} onClick={handleAddNewTask}>
+			<button className={css.addButton} onClick={handleVisible}>
 				<PlusIcon />
 				Add card
 			</button>
 			:
-			<button className={css.addButtonDisabled} onClick={handleAddNewTask} disabled="disabled">
+			<button className={css.addButtonDisabled} onClick={handleVisible} disabled="disabled">
 			<PlusIcon />
 			Add card
 			</button>
 			)}
 
 			{!isFormVisible && type === LIST_TYPES.FINISHED && (inProgressTasks.length ?
-			<button className={css.addButton} onClick={handleAddNewTask}>
+			<button className={css.addButton} onClick={handleVisible}>
 				<PlusIcon />
 				Add card
 			</button>
 			:
-			<button className={css.addButtonDisabled} onClick={handleAddNewTask} disabled="disabled">
+			<button className={css.addButtonDisabled} onClick={handleVisible} disabled="disabled">
 			<PlusIcon />
 			Add card
 			</button>

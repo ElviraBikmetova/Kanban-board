@@ -4,14 +4,10 @@ import css from './Forms.module.scss'
 
 const FormAddNewTask = props => {
 	const {addNewTask, setFormVisible} = props
-	const [values, setValues] = useState({
-		title: '',
-		description: ''
-	})
+	const [values, setValues] = useState({title: ''	})
 
 	const handleChange = e => {
-		const fieldName = e.target.name
-		setValues({...values, [fieldName]: e.target.value})
+		setValues({...values, title: e.target.value})
 	}
 
 	const handleSubmit = e => {
@@ -24,7 +20,7 @@ const FormAddNewTask = props => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<input className={css.input} id='taskTitle' name='title' type='text' value={values.title} onChange={handleChange} placeholder={'_'.repeat(30)} />
+			<input className={css.input} id='taskTitle' type='text' value={values.title} onChange={handleChange} placeholder={'_'.repeat(30)} />
 			<button className={css.submitButton} type='submit'>Submit</button>
 		</form>
 	)

@@ -17,9 +17,9 @@ const SelectAddNewTask = props => {
 
     return (
         <div>
-            <select className={css.select} onChange={handleSelectChange}>
+            <select className={css.select} onChange={handleSelectChange} >
                 <option></option>
-                {filteredTasks.map(task => <option key={task.id} value={task.id}>{task.title}</option>)}
+                {filteredTasks.map(task => <option key={task.id} value={task.id} >{task.title}</option>)}
             </select>
         </div>
      );

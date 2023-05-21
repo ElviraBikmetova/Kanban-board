@@ -6,10 +6,11 @@ import css from './Board.module.scss'
 const Board = (props) => {
 const {tasks, setTasks} = props
 
-const addNewTask = (title) => {
+const addNewTask = (title, description) => {
 	const newTask = {
 		id: uniqid(),
-		title: title,
+		title,
+		description,
 		status: LIST_TYPES.BACKLOG
 	}
 	setTasks([...tasks, newTask])
