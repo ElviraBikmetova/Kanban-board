@@ -2,7 +2,8 @@
 @import '../../extends';
 
 .list {
-	width: 282px;
+	min-width: 282px;
+	max-width: 24%;
 	height: 100%;
 	background: $light-gray;
 	padding: 20px;

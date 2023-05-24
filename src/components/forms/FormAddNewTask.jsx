@@ -1,5 +1,4 @@
 import {useState} from 'react'
-// import clsx from 'clsx'
 import css from './Forms.module.scss'
 
 const FormAddNewTask = props => {
@@ -14,9 +13,10 @@ const FormAddNewTask = props => {
 	}
 
 	const handleSubmit = e => {
+		let title = values.title.trim()
 		e.preventDefault()
-		if (values.title) {
-			addNewTask(values.title)
+		if (title) {
+			addNewTask(title)
 		}
 		setFormVisible(false)
 	}
