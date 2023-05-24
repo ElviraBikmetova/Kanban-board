@@ -30,7 +30,7 @@
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
-	gap: 5px;
+	gap: 8px;
 	font-size: 14px;
 	line-height: 1.14;
 	&::after {
@@ -49,4 +49,13 @@
 			color: $deep-blue;
 		}
 	 }
+}
+
+@media (max-width:339px) {
+	.title {
+		display: none;
+	}
+	.user {
+		margin-left: auto;
+	}
 }

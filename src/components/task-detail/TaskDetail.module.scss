@@ -1,57 +1,64 @@
+@import '../../vars';
+@import '../../extends';
+
 .wrapper {
 	background: #fff;
 	border-radius: 8px;
 	padding: 20px;
+	flex-grow: 1;
 }
 
 .header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-bottom: 35px;
+	img {
+		width: 23px;
+		height: 23px;
+	}
 }
 
 .title {
-	margin: 0;
+	font-size: 24px;
+	line-height: 1.16;
 }
 
-.createdAt {
-	color: #737373;
-	font-style: italic;
+.description {
+	max-width: 60%;
+	margin-bottom: 20px;
+	font-size: 18px;
+	line-height: 1.16;
 }
 
-.status {
-	color: #fff;
-	background: #465571;
-	font-weight: bold;
-	margin: 0;
-	padding: 8px 20px;
-	border-radius: 20px;
+.btn {
+	@extend %button;
+	background: $light-gray;
+	padding: 6px 18px;
+	&:hover {
+		background: $blue;
+		color: #fff;
+	}
 }
 
-.label {
-	margin-bottom: 10px;
-}
-
-.select {
-	padding: 8px;
-	border-radius: 8px;
-}
-
-.homeLink {
+.textarea {
 	display: block;
-	margin: 20px 0;
-	text-decoration: none;
-	color: #737373;
+	margin-bottom: 20px;
+	width: 60%;
+	min-height: 50vh;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	line-height: 1.16;
 }
 
-.homeLink:hover {
-	color: #000;
+.cross {
+	margin-left: auto;
+    display: flex;
+	margin-bottom: 5px;
 }
 
-.emptyState {
-	text-align: center;
-}
-
-.emptyStateIcon {
-	width: 200px;
+@media (max-width: 339px) {
+	.textarea {
+		width: 100%;
+	}
 }

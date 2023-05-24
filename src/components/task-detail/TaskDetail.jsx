@@ -1,15 +1,13 @@
 import {useState} from 'react'
 import { useLocation, Link } from 'react-router-dom'
-import { LIST_TYPES, LIST_COPY, LIST_COLORS } from '../../config'
-// import notFoundIcon from '../../assets/not-found.svg'
 import cross from '../../assets/cross.svg'
 import css from './TaskDetail.module.scss'
 
 const TaskDetail = (props) => {
 	const {pathname} = useLocation()
 	const {tasks, setTasks} = props
-	const taskID = pathname.slice(7)
-// TODO: найти более динамичный способ для извлечения id из path
+	const index = pathname.lastIndexOf('/')
+	const taskID = pathname.slice(index+1)
 	const task = tasks.find(task => task.id === taskID)
 	let visible = true
 	const [descriptions, setDescriptions] = useState({
@@ -37,19 +35,23 @@ const TaskDetail = (props) => {
 				<>
 					<div className={css.header}>
 						<h2 className={css.title}>{task.title}</h2>
-						<Link to='/'><img src={cross} alt="" /></Link>
+						<Link to='/'><img src={cross} alt="cross" /></Link>
 					</div>
 					{descriptions.visible ?
-					<p onClick={handleEdit}>{task.description || 'This task has no description'}</p> :
-					<form onSubmit={handleSubmit}>
-						<textarea onChange={handleChange}>{task.description || 'This task has no description'}</textarea>
-						<button type='submit'>save</button>
+					(<>
+						<p className={css.description}>{task.description || 'This task has no description'}</p>
+						<button className={css.btn} onClick={handleEdit}>Edit description</button>
+					</>
+					) :
+					<form className={css.form} onSubmit={handleSubmit}>
+						<textarea className={css.textarea} onChange={handleChange}>{task.description}</textarea>
+						<button className={css.btn} type='submit'>Save</button>
 					</form>
 					}
 				</>
 			) : (
 				<>
-					<Link to='/'><img src={cross} alt="" /></Link>
+					<Link to='/'><img className={css.cross} src={cross} alt="cross" /></Link>
 					<h2>Task with ID {taskID} not found</h2>
 				</>
 

@@ -1,25 +1,27 @@
 @import '../../vars';
+@import '../../extends';
 
 .list {
 	width: 282px;
 	height: 100%;
-	background: #EBECF0;
+	background: $light-gray;
 	padding: 20px;
-	border-radius: 8px;
-	margin: 15px;
+	border-radius: 10px;
 	box-shadow: 2px 2px 8px rgb(0 0 0 / 20%);
 }
 
 .listTitle {
-	margin-top: 0;
+	margin-bottom: 15px;
 }
 
 .task {
 	background: #fff;
 	color: #000;
-	margin: 7px 0;
+	margin: 15px 0;
 	padding: 8px;
-	border-radius: 8px;
+	border-radius: 5px;
+	font-size: 18px;
+	line-height: 1.16;
 	&:hover {
 		color: $deep-blue;
 	}
@@ -30,38 +32,19 @@
 }
 
 .addButton {
-	background: none;
-	border: none;
-	appearance: none;
-	font-size: 15px;
-	margin-top: 15px;
-	cursor: pointer;
-	font-size: 18px;
-	line-height: 1.16;
+	@extend %button;
 	color: #5E6C84;
-	border-radius: 5px;
-	padding: 6px;
 	&:hover {
 		background: #fff;
-	}
-	svg {
-		margin-right: 4px;
 	}
 }
 
 .addButtonDisabled {
-	background: none;
-	border: none;
-	appearance: none;
-	font-size: 15px;
-	margin-top: 15px;
-	font-size: 18px;
-	line-height: 1.16;
+	@extend %button;
 	color: #909bae;
-	border-radius: 5px;
-	padding: 6px;
-	svg {
-		margin-right: 4px;
-	}
+	cursor: default;
 }
 
+.trackVertical {
+	border-radius: 5px !important;
+}

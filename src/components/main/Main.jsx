@@ -9,7 +9,6 @@ const Main = (props) => {
 			<Routes>
 				<Route path='/' element={<Board {...props} />} />
 				<Route path='tasks/:taskId' element={<TaskDetail {...props} />} />
-				{/* <Route path='*' element={<NotFound />} /> */}
 			</Routes>
 		</main>
 	)

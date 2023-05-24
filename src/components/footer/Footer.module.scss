@@ -5,19 +5,24 @@
 	background: $deep-blue;
 	color: #fff;
 	display: flex;
-	padding: 17px 20px;
 	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 15px;
+	padding: 17px 20px;
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 1.16;
 }
 
-.active {
-	margin-right: 36px;
+.classNums {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 36px;
+	row-gap: 10px;
 }
 
 .by {
-	margin-left: auto;
 	a {
 		text-decoration: none;
 		&:hover {
@@ -26,29 +31,8 @@
 	}
 }
 
-
-
-
-.counts {
-	display: flex;
-}
-
-.count {
-	position: relative;
-	margin-right: 30px;
-}
-
-.count + .count::before {
-	content: '';
-	display: block;
-	background: #fff;
-	width: 1px;
-	height: 100%;
-	position: absolute;
-	left: -15px;
-	top: 0;
-}
-
-.copy {
-	margin-left: auto;
+@media (max-width:339px) {
+	.by {
+		display: none;
+	}
 }

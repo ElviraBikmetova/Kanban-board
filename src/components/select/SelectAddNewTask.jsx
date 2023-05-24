@@ -1,4 +1,3 @@
-import { LIST_TYPES } from '../../config';
 import css from './Select.module.scss'
 
 const SelectAddNewTask = props => {
@@ -15,13 +14,17 @@ const SelectAddNewTask = props => {
         setFormVisible(false)
     }
 
+    const handleBlur = e => {
+        if (!e.target.style.value) {
+            setFormVisible(false)
+        }
+    }
+
     return (
-        <div>
-            <select className={css.select} onChange={handleSelectChange} >
-                <option></option>
-                {filteredTasks.map(task => <option key={task.id} value={task.id} >{task.title}</option>)}
-            </select>
-        </div>
+        <select className={css.select} onChange={handleSelectChange} onBlur={handleBlur}>
+            <option></option>
+            {filteredTasks.map(task => <option key={task.id} value={task.id} >{task.title}</option>)}
+        </select>
      );
 }
 
