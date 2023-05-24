@@ -25,8 +25,8 @@ const List = props => {
 			<Scrollbars autoHide autoHeight autoHeightMax={400}>
 				{tasks.map(task => {
 					return (
-					<Link to={`tasks/${task.id}`} className={css.taskLink}>
-						<div key={task.id} className={css.task}>{task.title}</div>
+					<Link key={task.id} to={`tasks/${task.id}`} className={css.taskLink}>
+						<div className={css.task}>{task.title}</div>
 					</Link>
 					)
 				})}
