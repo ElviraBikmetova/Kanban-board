@@ -17,3 +17,4 @@ Finished (законченные задачи).
 Active tasks — отображает количество задач в списке Backlog.
 
 Finished tasks — отображает количество задач в списке Finished.
+
